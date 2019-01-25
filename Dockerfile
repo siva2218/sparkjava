@@ -1,8 +1,10 @@
 FROM tomcat:8.5
 
-MAINTAINER Kavitha
+MAINTAINER siva
 
-COPY /target/sparkjava-hello-world-1.0.war webapps/234.war
+
+COPY /target/sparkjava-hello-world-1.0.war webapps/123.war
+
 
 EXPOSE 8080
 
