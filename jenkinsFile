@@ -2,7 +2,7 @@ node {
    def mvnHome
    stage('Git Clone') { // for display purposes
       // Get some code from a GitHub repository
-        git 'https://github.com/kavitharani15/test-1.git'
+        git 'https://github.com/siva2218/sprakjava.git'
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
@@ -15,22 +15,22 @@ node {
       archive 'target/*.war'
    }
    stage('Build Docker Image') {
-        sh "docker build . -t kavitharani15/spark:$BUILD_NUMBER"
+        sh "docker build . -t siva2218/spark:$BUILD_NUMBER"
    }
    stage('Create latest Tag') {
-        sh "docker tag kavitharani15/spark:$BUILD_NUMBER kavitharani15/spark:latest"
+        sh "docker tag siva2218/spark:$BUILD_NUMBER siva2218/spark:latest"
    }
    stage('Push Images to Docker Hub') {
-        sh "docker login -u kavitharani15 -p $dockerhub && docker push kavitharani15/spark:$BUILD_NUMBER && docker push kavitharani15/spark:latest"
+        sh "docker login -u siva2218 -p $dockerhub && docker push siva2218/spark:$BUILD_NUMBER && docker push siva2218/spark:latest"
    }
    stage('Cleanup containers') {
-        sh "docker stop spark && docker rm spark"
+        sh "docker stop spark19 && docker rm spark19"
    }
    stage('Deploy the latest Image'){
-       sh "docker run -d --name spark -p 8080:8080 kavitharani15/spark:latest"
+       sh "docker run -d --name spark -p 8085:8080 kavitharani15/spark:latest"
    }
    stage('Cleanup Image') {
-        sh "docker rmi kavitharani15/spark:$BUILD_NUMBER"
+        sh "docker rmi siva2218/spark:$BUILD_NUMBER"
    }
 }
 
