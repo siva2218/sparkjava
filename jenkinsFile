@@ -24,7 +24,7 @@ node {
         sh "docker login -u siva2218 -p $dockerhub && docker push siva2218/spark:$BUILD_NUMBER && docker push siva2218/spark:latest"
    }
    stage('Cleanup containers') {
-        sh "docker stop spark19 && docker rm spark19"
+        sh "docker stop spark12 && docker rm spark12"
    }
    stage('Deploy the latest Image'){
        sh "docker run -d --name spark -p 8085:8080 kavitharani15/spark:latest"
