@@ -1,0 +1,3 @@
+image: siva2218/spark
+container_name: siva22
+ports: 80:8080
