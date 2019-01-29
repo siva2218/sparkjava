@@ -1,4 +1,5 @@
 siva:
  image: siva2218/spark
- container_name: siva22
- ports: 80:8080
+ container_name: siva26
+ ports: 
+    - "80:8080"
