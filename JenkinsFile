@@ -2,7 +2,7 @@ node {
    def mvnHome
    stage('Git Clone') { // for display purposes
       // Get some code from a GitHub repository
-      git 
+      git 'https://github.com/siva2218/sparkjava.git'
       // Get the Maven tool.
       // ** NOTE: This 'm3' Maven tool must be configured
       // **       in the global configuration.           
